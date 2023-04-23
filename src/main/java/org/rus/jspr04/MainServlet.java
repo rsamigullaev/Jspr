@@ -2,20 +2,24 @@ package org.rus.jspr04;
 
 import org.rus.jspr04.post.*;
 import org.rus.jspr04.util.Method;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class MainServlet extends HttpServlet {
     private PostController controller;
 
     @Override
     public void init() {
-        final var db = new PostInMemoryDB();
-        final PostRepository repository = new PostRepositoryImpl(db);
-        final var service = new PostService(repository);
-        controller = new PostController(service);
+        final var factory = new DefaultListableBeanFactory();
+        final var reader = new XmlBeanDefinitionReader(factory);
+        reader.loadBeanDefinitions("beans.xml");
+
+        controller = factory.getBean(PostController.class);
     }
 
     @Override
