@@ -37,9 +37,9 @@ public final class PostController {
         wrapper(response, () -> service.removeById(id));
     }
 
-    private <T> void wrapper(final HttpServletResponse response, final Supplier<T> rw) throws IOException {
+    private <T> void wrapper(final HttpServletResponse response, final Supplier<T> supplier) throws IOException {
         response.setContentType(APPLICATION_JSON);
-        final var data = rw.get();
+        final var data = supplier.get();
         response.getWriter().print(gson.toJson(data));
     }
 }
