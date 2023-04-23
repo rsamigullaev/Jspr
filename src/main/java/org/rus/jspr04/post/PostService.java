@@ -2,9 +2,11 @@ package org.rus.jspr04.post;
 
 import org.rus.jspr04.post.model.Post;
 import org.rus.jspr04.util.NotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public final class PostService {
     private final PostRepository repository;
 

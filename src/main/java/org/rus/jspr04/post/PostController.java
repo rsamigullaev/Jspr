@@ -2,12 +2,14 @@ package org.rus.jspr04.post;
 
 import com.google.gson.Gson;
 import org.rus.jspr04.post.model.Post;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.function.Supplier;
 
+@Controller
 public final class PostController {
     public static final String APPLICATION_JSON = "application/json";
 

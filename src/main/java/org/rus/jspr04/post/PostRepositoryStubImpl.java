@@ -1,11 +1,13 @@
 package org.rus.jspr04.post;
 
 import org.rus.jspr04.post.model.Post;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public final class PostRepositoryStubImpl implements PostRepository {
     @Override
     public List<Post> getAll() {

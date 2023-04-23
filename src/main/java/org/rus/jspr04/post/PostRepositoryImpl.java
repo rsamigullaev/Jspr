@@ -2,10 +2,14 @@ package org.rus.jspr04.post;
 
 import org.rus.jspr04.post.model.Post;
 import org.rus.jspr04.util.NotFoundException;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Primary
+@Repository
 public class PostRepositoryImpl implements PostRepository {
     private final PostInMemoryDB db;
 
