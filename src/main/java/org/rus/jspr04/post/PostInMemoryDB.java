@@ -11,6 +11,9 @@ public final class PostInMemoryDB {
 
     private final List<Post> posts = new ArrayList<>();
 
+    public PostInMemoryDB() {
+    }
+
     public List<Post> getPosts() {
         return posts;
     }

@@ -17,7 +17,7 @@ public class MainServlet extends HttpServlet {
     public void init() {
         final var factory = new DefaultListableBeanFactory();
         final var reader = new XmlBeanDefinitionReader(factory);
-        reader.loadBeanDefinitions("beans.xml");
+        reader.loadBeanDefinitions("beans-manual.xml");
 
         controller = factory.getBean(PostController.class);
     }
