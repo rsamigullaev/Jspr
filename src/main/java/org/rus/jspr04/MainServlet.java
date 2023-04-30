@@ -1,25 +1,21 @@
 package org.rus.jspr04;
 
-import org.rus.jspr04.post.*;
+import org.rus.jspr04.post.PostController;
+import org.rus.jspr04.util.JConfig;
 import org.rus.jspr04.util.Method;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class MainServlet extends HttpServlet {
     private PostController controller;
 
     @Override
     public void init() {
-        final var factory = new DefaultListableBeanFactory();
-        final var reader = new XmlBeanDefinitionReader(factory);
-        reader.loadBeanDefinitions("beans.xml");
-
-        controller = factory.getBean(PostController.class);
+        final var context = new AnnotationConfigApplicationContext(JConfig.class);
+        controller = context.getBean(PostController.class);
     }
 
     @Override
